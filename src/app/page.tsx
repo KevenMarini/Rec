@@ -1,10 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 
 export default function Home() {
+  const [showPopup, setShowPopup] = useState(false);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -32,8 +35,15 @@ export default function Home() {
     visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
+  const navLinks = [
+    { name: 'Pit Crew', href: '#pit-crew' },
+    { name: 'Project', href: '#project' },
+    { name: 'Telemetry', href: '#telemetry' },
+    { name: 'The Grid', href: '#grid' },
+  ];
+
   return (
-    <div className="min-h-screen bg-neutral-900 text-gray-100 font-sans selection:bg-red-600 selection:text-white overflow-hidden">
+    <div className="min-h-screen bg-neutral-900 text-gray-100 font-sans selection:bg-red-600 selection:text-white overflow-hidden relative">
       {/* Carbon Fiber Background Pattern */}
       <div className="fixed inset-0 pointer-events-none" style={{
         backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
@@ -41,8 +51,62 @@ export default function Home() {
         opacity: 0.1
       }}></div>
 
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md border-b border-red-600/50 z-50 px-4 py-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-red-500 font-black italic tracking-widest uppercase text-xl">
+            Pole Position
+          </div>
+          
+          <div className="flex items-center space-x-6 text-sm font-bold uppercase tracking-wider">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-neutral-400 hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          <button 
+            onClick={() => setShowPopup(true)}
+            className="bg-transparent border border-red-600 text-red-500 hover:bg-red-600 hover:text-white font-bold py-2 px-6 transform skew-x-[-10deg] uppercase tracking-wider transition-all text-xs"
+          >
+            <span className="block transform skew-x-[10deg]">Visit Main Website</span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Main Website Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowPopup(false)}></div>
+          <div className="relative bg-neutral-900 border-l-4 border-red-600 p-8 max-w-md w-full shadow-2xl">
+            <button 
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-white font-bold"
+            >
+              ✕
+            </button>
+            <h3 className="text-2xl font-black uppercase italic tracking-tight mb-4 text-white">Incoming Transmission...</h3>
+            <p className="text-red-500 font-mono text-sm tracking-widest mb-6">Status: In Development</p>
+            <p className="text-neutral-300 font-light">
+              Our main website is currently in development and will be out soon with more of our projects. Stay tuned!
+            </p>
+            <button 
+              onClick={() => setShowPopup(false)}
+              className="mt-8 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 uppercase tracking-wider transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <header className="relative border-b-[4px] border-red-600 overflow-hidden py-40 px-4">
+      <header className="relative border-b-[4px] border-red-600 overflow-hidden py-40 px-4 mt-16">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -111,7 +175,7 @@ export default function Home() {
       </header>
 
       {/* Pit Crew (Who We Are) */}
-      <section className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden">
+      <section id="pit-crew" className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden pt-32 -mt-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -164,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Project Description */}
-      <section className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden">
+      <section id="project" className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden pt-32 -mt-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -191,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Telemetry (Project / Domains) */}
-      <section className="py-24 px-4 bg-black relative border-y border-neutral-800 overflow-hidden">
+      <section id="telemetry" className="py-24 px-4 bg-black relative border-y border-neutral-800 overflow-hidden pt-32 -mt-8">
         {/* Abstract Tech Grid Background */}
         <div className="absolute inset-0 z-0 opacity-[0.15]">
           <Image 
@@ -257,7 +321,7 @@ export default function Home() {
       </section>
 
       {/* The Grid (Open Roles) */}
-      <section id="grid" className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden">
+      <section id="grid" className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden pt-32 -mt-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
