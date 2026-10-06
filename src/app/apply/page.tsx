@@ -161,9 +161,24 @@ export default function ApplyPage() {
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-green-500/10 border border-green-500/50 text-green-400 p-6 font-mono text-center uppercase tracking-widest"
+              className="bg-green-500/10 border border-green-500/50 text-green-400 p-8 flex flex-col items-center text-center uppercase tracking-widest"
             >
-              Application Transmitted Successfully. Stand By.
+              <div className="mb-6 font-bold text-lg">Application Transmitted Successfully. Stand By.</div>
+              
+              <div className="w-full h-px bg-green-500/20 mb-6"></div>
+              
+              <p className="text-neutral-300 font-sans normal-case tracking-normal mb-6">
+                Don't miss out! Join our WhatsApp group to stay updated on the selection process and meet the team.
+              </p>
+              
+              <a 
+                href="https://chat.whatsapp.com/Dy5unI1CRR7EVwhgPDat98" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-10 transform skew-x-[-10deg] uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.2)]"
+              >
+                <span className="block transform skew-x-[10deg]">Join WhatsApp Group</span>
+              </a>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
