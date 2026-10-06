@@ -257,8 +257,8 @@ export default function Home() {
           className="bg-neutral-900/50 p-8 md:p-12 border border-neutral-800 backdrop-blur-sm relative"
         >
           <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
-          <p className="text-xl text-neutral-400 font-light italic text-center uppercase tracking-widest font-mono text-sm">
-            [Awaiting Telemetry Data: Project Description will be updated shortly]
+          <p className="text-xl text-neutral-300 font-light italic text-center leading-relaxed">
+            We are building a high-speed, frictionless levitation vehicle that uses quantum flux pinning and magnetic track dynamics. Basically, we’re removing wheel-on-ground friction to create a floating, high-efficiency transit prototype using cryogenic superconductors.
           </p>
         </motion.div>
       </section>
