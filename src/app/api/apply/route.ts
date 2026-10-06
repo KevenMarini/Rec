@@ -1,12 +1,28 @@
+import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    
-    // In a real application, you would save this to a database (like Vercel Postgres, Supabase, MongoDB)
-    // or send an email. For now, we will just log it.
-    console.log('New Application Received:', body);
+    const { firstName, lastName, whatsapp, email, description } = await request.json();
+
+    // Create table if not exists
+    await sql`
+      CREATE TABLE IF NOT EXISTS applications (
+        id SERIAL PRIMARY KEY,
+        first_name VARCHAR(255) NOT NULL,
+        last_name VARCHAR(255) NOT NULL,
+        whatsapp VARCHAR(50) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+
+    // Insert new application
+    await sql`
+      INSERT INTO applications (first_name, last_name, whatsapp, email, description)
+      VALUES (${firstName}, ${lastName}, ${whatsapp}, ${email}, ${description});
+    `;
 
     return NextResponse.json(
       { message: 'Application submitted successfully' },
