@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
@@ -39,8 +40,25 @@ export default function ApplyPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      transition: { duration: 0.4 }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-neutral-900 text-gray-100 font-sans selection:bg-red-600 selection:text-white py-12 px-4">
+    <div className="min-h-screen bg-neutral-900 text-gray-100 font-sans selection:bg-red-600 selection:text-white py-12 px-4 overflow-hidden">
       {/* Carbon Fiber Background Pattern */}
       <div className="fixed inset-0 pointer-events-none" style={{
         backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
@@ -49,11 +67,22 @@ export default function ApplyPage() {
       }}></div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <Link href="/" className="inline-flex items-center text-red-500 hover:text-red-400 uppercase tracking-wider text-sm font-bold mb-12 group transition-colors">
-          <span className="transform transition-transform group-hover:-translate-x-2 mr-2">&larr;</span> Back to Paddock
-        </Link>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/" className="inline-flex items-center text-red-500 hover:text-red-400 uppercase tracking-wider text-sm font-bold mb-12 group transition-colors">
+            <span className="transform transition-transform group-hover:-translate-x-2 mr-2">&larr;</span> Back to Paddock
+          </Link>
+        </motion.div>
         
-        <div className="bg-black border-l-4 border-red-600 p-8 md:p-12 mb-12 relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="bg-black border-l-4 border-red-600 p-8 md:p-12 mb-12 relative overflow-hidden shadow-2xl"
+        >
           <div className="absolute top-0 right-0 w-32 h-32 bg-red-600 opacity-5 blur-3xl rounded-full"></div>
           
           <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tight mb-4">R&D Team</h1>
@@ -64,55 +93,78 @@ export default function ApplyPage() {
               We are looking for a multidisciplinary R&D team to research and develop a <strong className="text-white">practical levitation system</strong>, exploring the underlying technologies, feasibility, control, and potential applications.
             </p>
 
-            <h3 className="text-xl font-bold text-white mt-10 mb-6 uppercase tracking-wide flex items-center">
+            <motion.h3 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-xl font-bold text-white mt-10 mb-6 uppercase tracking-wide flex items-center"
+            >
               <span className="w-8 h-[2px] bg-red-600 mr-3 inline-block"></span>
               Core Competencies
-            </h3>
+            </motion.h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Electromagnetics & Levitation</strong>
-                <span className="text-sm">EMS, EDS, permanent magnets, electromagnets, Halbach arrays</span>
-              </div>
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Mechanical Engineering</strong>
-                <span className="text-sm">Structural design, weight distribution, CAD, system dynamics</span>
-              </div>
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Electronics & Power</strong>
-                <span className="text-sm">Batteries, MOSFETs/IGBTs, drivers, power management</span>
-              </div>
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Embedded & Control</strong>
-                <span className="text-sm">ESP32/STM32, sensors, PID control, real-time stabilization</span>
-              </div>
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Propulsion & Motion</strong>
-                <span className="text-sm">BLDC, linear motors, electromagnetic propulsion</span>
-              </div>
-              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
-                <strong className="text-red-500 block mb-1">Simulation & Testing</strong>
-                <span className="text-sm">MATLAB/Simulink, ANSYS, COMSOL, iterative prototyping</span>
-              </div>
-            </div>
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-10"
+            >
+              {[
+                { title: "Electromagnetics & Levitation", desc: "EMS, EDS, permanent magnets, electromagnets, Halbach arrays" },
+                { title: "Mechanical Engineering", desc: "Structural design, weight distribution, CAD, system dynamics" },
+                { title: "Electronics & Power", desc: "Batteries, MOSFETs/IGBTs, drivers, power management" },
+                { title: "Embedded & Control", desc: "ESP32/STM32, sensors, PID control, real-time stabilization" },
+                { title: "Propulsion & Motion", desc: "BLDC, linear motors, electromagnetic propulsion" },
+                { title: "Simulation & Testing", desc: "MATLAB/Simulink, ANSYS, COMSOL, iterative prototyping" }
+              ].map((comp, idx) => (
+                <motion.div key={idx} variants={itemVariants} className="border border-neutral-800 p-4 bg-neutral-900/50 hover:bg-neutral-800/80 transition-colors">
+                  <strong className="text-red-500 block mb-1">{comp.title}</strong>
+                  <span className="text-sm">{comp.desc}</span>
+                </motion.div>
+              ))}
+            </motion.div>
 
-            <div className="bg-red-600/10 p-6 border border-red-600/30 text-red-50">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-red-600/10 p-6 border border-red-600/30 text-red-50 relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
               <strong className="uppercase tracking-widest text-red-500 block mb-2 text-sm">Primary Directive</strong>
               Investigate existing levitation technologies, identify the most feasible approach, develop simulations and experimental prototypes, validate the concept, and establish the technical foundation for future applications.
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center mb-10">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center mb-10"
+        >
           <div className="w-12 h-1 bg-red-600 mr-4"></div>
           <h2 className="text-4xl font-bold uppercase italic tracking-wider">Qualifying Round</h2>
-        </div>
+        </motion.div>
         
-        <div className="bg-neutral-900 border border-neutral-800 p-8 md:p-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-neutral-900 border border-neutral-800 p-8 md:p-10 shadow-xl"
+        >
           {status === 'success' ? (
-            <div className="bg-green-500/10 border border-green-500/50 text-green-400 p-6 font-mono text-center uppercase tracking-widest">
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-green-500/10 border border-green-500/50 text-green-400 p-6 font-mono text-center uppercase tracking-widest"
+            >
               Application Transmitted Successfully. Stand By.
-            </div>
+            </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -148,7 +200,7 @@ export default function ApplyPage() {
               <button 
                 type="submit" 
                 disabled={status === 'submitting'}
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 transform skew-x-[-10deg] uppercase tracking-wider transition-all disabled:opacity-50 disabled:hover:scale-100 hover:scale-[1.02] mt-4"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 transform skew-x-[-10deg] uppercase tracking-wider transition-all disabled:opacity-50 disabled:hover:scale-100 hover:scale-[1.02] mt-4 shadow-lg shadow-red-900/20"
               >
                 <span className="block transform skew-x-[10deg]">
                   {status === 'submitting' ? 'Transmitting...' : 'Submit Application'}
@@ -156,7 +208,7 @@ export default function ApplyPage() {
               </button>
             </form>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
