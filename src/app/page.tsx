@@ -366,7 +366,48 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <footer className="bg-black py-12 text-center border-t-2 border-red-600 relative overflow-hidden">
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 bg-black relative border-t-2 border-red-600/30 overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <h2 className="text-3xl font-black uppercase italic tracking-wider mb-6">Join The Pit Wall</h2>
+          
+          <div className="bg-neutral-900/50 p-8 border border-neutral-800 backdrop-blur-sm shadow-2xl relative mb-8">
+            <div className="absolute top-0 right-0 w-8 h-8 bg-green-500 opacity-20 blur-xl rounded-full"></div>
+            
+            <p className="text-xl text-neutral-300 font-light mb-8">
+              For more details, join our WhatsApp group and stay updated.
+            </p>
+            
+            <a 
+              href="https://chat.whatsapp.com/Dy5unI1CRR7EVwhgPDat98" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-10 transform skew-x-[-10deg] uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.3)]"
+            >
+              <span className="block transform skew-x-[10deg]">Join WhatsApp Group</span>
+            </a>
+          </div>
+
+          <div className="text-left bg-neutral-900/30 p-8 border border-neutral-800 relative">
+            <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+            <p className="text-red-500 font-mono tracking-widest text-sm uppercase mb-6">
+              // For further queries, tag the below in the WhatsApp community:
+            </p>
+            <ul className="space-y-4">
+              <li className="flex flex-col md:flex-row md:items-center justify-between border-b border-neutral-800 pb-4">
+                <span className="text-lg font-bold text-white uppercase tracking-wide">M. Keven</span>
+                <span className="text-neutral-400 font-mono">+91 78100 16443</span>
+              </li>
+              <li className="flex flex-col md:flex-row md:items-center justify-between pt-2">
+                <span className="text-lg font-bold text-white uppercase tracking-wide">Maxime</span>
+                <span className="text-neutral-400 font-mono">+91 97909 06337</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-black py-12 text-center border-t border-neutral-800 relative overflow-hidden">
         <p className="text-neutral-500 uppercase tracking-widest text-sm font-bold italic relative z-10">© {new Date().getFullYear()} Pole Position Team.</p>
       </footer>
     </div>
