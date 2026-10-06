@@ -54,8 +54,17 @@ export default function Home() {
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md border-b border-red-600/50 z-50 px-4 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-red-500 font-black italic tracking-widest uppercase text-xl">
-            Pole Position
+          <div className="flex items-center gap-3">
+            <Image 
+              src="/hero.jpg" 
+              alt="Team Logo" 
+              width={40} 
+              height={40} 
+              className="rounded-full border-2 border-red-600 object-cover"
+            />
+            <div className="text-red-500 font-black italic tracking-widest uppercase text-xl">
+              Pole Position
+            </div>
           </div>
           
           <div className="flex items-center space-x-6 text-sm font-bold uppercase tracking-wider">
