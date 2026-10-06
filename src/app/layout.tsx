@@ -15,6 +15,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Recruitment Portal | Pole Position Team",
   description: "Join the Pole Position Team. Claim your spot on the grid.",
+  openGraph: {
+    title: "Recruitment Portal | Pole Position Team",
+    description: "Join the Pole Position Team. Claim your spot on the grid.",
+    url: "https://teamrec.vercel.app",
+    siteName: "Pole Position Team",
+    images: [
+      {
+        url: "/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pole Position Team Hero",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recruitment Portal | Pole Position Team",
+    description: "Join the Pole Position Team. Claim your spot on the grid.",
+    images: ["/hero.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
