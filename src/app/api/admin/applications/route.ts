@@ -22,6 +22,13 @@ export async function GET() {
       );
     `;
 
+    try {
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS college VARCHAR(255);`;
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS year_of_study VARCHAR(255);`;
+    } catch (e) {
+      // Ignore
+    }
+
     const { rows } = await sql`SELECT * FROM applications ORDER BY created_at DESC;`;
     return NextResponse.json({ applications: rows }, { status: 200 });
   } catch (error) {

@@ -8,6 +8,9 @@ export default function ApplyPage() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    college: '',
+    yearOfStudy: '',
+    otherYear: '',
     whatsapp: '',
     email: '',
     description: ''
@@ -27,7 +30,7 @@ export default function ApplyPage() {
       
       if (res.ok) {
         setStatus('success');
-        setFormData({ firstName: '', lastName: '', whatsapp: '', email: '', description: '' });
+        setFormData({ firstName: '', lastName: '', college: '', yearOfStudy: '', otherYear: '', whatsapp: '', email: '', description: '' });
       } else {
         setStatus('error');
       }
@@ -191,6 +194,32 @@ export default function ApplyPage() {
                   <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Last Name</label>
                   <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">College</label>
+                <input required type="text" name="college" value={formData.college} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Year of Study</label>
+                  <select required name="yearOfStudy" value={formData.yearOfStudy} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors appearance-none">
+                    <option value="" disabled>Select Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="Other">Other (Specify)</option>
+                  </select>
+                </div>
+                
+                {formData.yearOfStudy === 'Other' ? (
+                  <div>
+                    <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Specify Other Year</label>
+                    <input required type="text" name="otherYear" value={formData.otherYear} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+                  </div>
+                ) : <div className="hidden md:block"></div>}
               </div>
 
               <div>
