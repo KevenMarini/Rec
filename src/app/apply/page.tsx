@@ -228,7 +228,7 @@ export default function ApplyPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Email Address</label>
+                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Email Address (Personal Mail ID)</label>
                 <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
               </div>
 
