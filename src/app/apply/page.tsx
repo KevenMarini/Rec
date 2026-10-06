@@ -9,6 +9,7 @@ export default function ApplyPage() {
     firstName: '',
     lastName: '',
     college: '',
+    department: '',
     yearOfStudy: '',
     otherYear: '',
     whatsapp: '',
@@ -30,7 +31,7 @@ export default function ApplyPage() {
       
       if (res.ok) {
         setStatus('success');
-        setFormData({ firstName: '', lastName: '', college: '', yearOfStudy: '', otherYear: '', whatsapp: '', email: '', description: '' });
+        setFormData({ firstName: '', lastName: '', college: '', department: '', yearOfStudy: '', otherYear: '', whatsapp: '', email: '', description: '' });
       } else {
         setStatus('error');
       }
@@ -196,9 +197,15 @@ export default function ApplyPage() {
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">College</label>
-                <input required type="text" name="college" value={formData.college} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">College</label>
+                  <input required type="text" name="college" value={formData.college} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Department / Course</label>
+                  <input required type="text" name="department" value={formData.department} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

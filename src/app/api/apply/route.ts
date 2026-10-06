@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { firstName, lastName, college, yearOfStudy, otherYear, whatsapp, email, description } = await request.json();
+    const { firstName, lastName, college, department, yearOfStudy, otherYear, whatsapp, email, description } = await request.json();
     
     const finalYear = yearOfStudy === 'Other' ? otherYear : yearOfStudy;
 
@@ -23,6 +23,7 @@ export async function POST(request: Request) {
     // Ensure new columns exist (for existing tables)
     try {
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS college VARCHAR(255);`;
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS department VARCHAR(255);`;
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS year_of_study VARCHAR(255);`;
     } catch (e) {
       console.log('Columns already exist or error adding them', e);
@@ -30,8 +31,8 @@ export async function POST(request: Request) {
 
     // Insert new application
     await sql`
-      INSERT INTO applications (first_name, last_name, college, year_of_study, whatsapp, email, description)
-      VALUES (${firstName}, ${lastName}, ${college || ''}, ${finalYear || ''}, ${whatsapp}, ${email}, ${description});
+      INSERT INTO applications (first_name, last_name, college, department, year_of_study, whatsapp, email, description)
+      VALUES (${firstName}, ${lastName}, ${college || ''}, ${department || ''}, ${finalYear || ''}, ${whatsapp}, ${email}, ${description});
     `;
 
     return NextResponse.json(

@@ -24,6 +24,7 @@ export async function GET() {
 
     try {
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS college VARCHAR(255);`;
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS department VARCHAR(255);`;
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS year_of_study VARCHAR(255);`;
     } catch (e) {
       // Ignore

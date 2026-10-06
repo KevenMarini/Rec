@@ -100,6 +100,7 @@ export default function AdminPage() {
       'First Name': app.first_name,
       'Last Name': app.last_name,
       'College': app.college || 'N/A',
+      'Department / Course': app.department || 'N/A',
       'Year of Study': app.year_of_study || 'N/A',
       'WhatsApp': app.whatsapp,
       'Email': app.email,
@@ -240,6 +241,7 @@ export default function AdminPage() {
                     <td className="p-4 align-top">
                       <div className="font-bold text-white">{app.first_name} {app.last_name}</div>
                       {app.college && <div className="text-xs text-neutral-400 mt-1">{app.college}</div>}
+                      {app.department && <div className="text-xs text-neutral-400 mt-0.5">{app.department}</div>}
                       {app.year_of_study && <div className="text-xs text-neutral-500 font-mono mt-0.5">Year: {app.year_of_study}</div>}
                     </td>
                     <td className="p-4 align-top font-mono text-sm text-neutral-300">{app.whatsapp}</td>
