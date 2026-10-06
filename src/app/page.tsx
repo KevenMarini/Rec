@@ -163,6 +163,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Project Description */}
+      <section className="py-24 px-4 max-w-6xl mx-auto relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={slideRightVariants}
+          className="flex items-center mb-12"
+        >
+          <div className="w-12 h-1 bg-red-600 mr-4"></div>
+          <h2 className="text-4xl font-bold uppercase italic tracking-wider">Project Description</h2>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-neutral-900/50 p-8 md:p-12 border border-neutral-800 backdrop-blur-sm relative"
+        >
+          <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+          <p className="text-xl text-neutral-400 font-light italic text-center uppercase tracking-widest font-mono text-sm">
+            [Awaiting Telemetry Data: Project Description will be updated shortly]
+          </p>
+        </motion.div>
+      </section>
+
       {/* Telemetry (Project / Domains) */}
       <section className="py-24 px-4 bg-black relative border-y border-neutral-800 overflow-hidden">
         {/* Abstract Tech Grid Background */}
