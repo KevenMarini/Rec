@@ -40,85 +40,123 @@ export default function ApplyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 font-sans">
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-        <Link href="/" className="text-blue-600 hover:underline mb-6 inline-block">
-          &larr; Back to Home
+    <div className="min-h-screen bg-neutral-900 text-gray-100 font-sans selection:bg-red-600 selection:text-white py-12 px-4">
+      {/* Carbon Fiber Background Pattern */}
+      <div className="fixed inset-0 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
+        backgroundSize: '20px 20px',
+        opacity: 0.1
+      }}></div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        <Link href="/" className="inline-flex items-center text-red-500 hover:text-red-400 uppercase tracking-wider text-sm font-bold mb-12 group transition-colors">
+          <span className="transform transition-transform group-hover:-translate-x-2 mr-2">&larr;</span> Back to Paddock
         </Link>
         
-        <h1 className="text-3xl font-bold mb-6">R&D Team – Advanced Levitation Technology</h1>
-        
-        <div className="prose max-w-none text-gray-700 mb-10">
-          <p className="mb-4">
-            We are looking for a multidisciplinary R&D team to research and develop a <strong>practical levitation system</strong>, exploring the underlying technologies, feasibility, control, and potential applications.
-          </p>
+        <div className="bg-black border-l-4 border-red-600 p-8 md:p-12 mb-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-red-600 opacity-5 blur-3xl rounded-full"></div>
+          
+          <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tight mb-4">R&D Team</h1>
+          <p className="text-red-500 font-mono tracking-widest text-sm uppercase mb-8">Advanced Levitation Technology</p>
+          
+          <div className="prose prose-invert max-w-none text-neutral-300">
+            <p className="mb-6 text-lg font-light leading-relaxed">
+              We are looking for a multidisciplinary R&D team to research and develop a <strong className="text-white">practical levitation system</strong>, exploring the underlying technologies, feasibility, control, and potential applications.
+            </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Team members should have knowledge or interest in:</h3>
-          <ul className="list-disc pl-6 space-y-2 mb-6">
-            <li><strong>Electromagnetics & Levitation</strong> – Electromagnetic suspension (EMS), electrodynamic suspension (EDS), permanent magnets, electromagnets, Halbach arrays, magnetic forces and levitation principles.</li>
-            <li><strong>Mechanical Engineering</strong> – Structural design, materials, weight distribution, CAD modelling, mechanical stability and system dynamics.</li>
-            <li><strong>Electronics & Power Systems</strong> – Batteries, power electronics, MOSFETs/IGBTs, drivers, power management, current/voltage control and electrical safety.</li>
-            <li><strong>Embedded & Control Systems</strong> – ESP32/STM32, sensors, PID control, feedback systems, real-time control and stabilization.</li>
-            <li><strong>Propulsion & Motion Systems</strong> – BLDC motors, linear motors, electromagnetic propulsion, motion control, braking and efficiency.</li>
-            <li><strong>Simulation & Research</strong> – MATLAB/Simulink, ANSYS, COMSOL or similar tools for electromagnetic, mechanical and control simulations.</li>
-            <li><strong>Prototyping & Testing</strong> – Experimental setup development, sensor integration, data collection, testing, troubleshooting and iterative prototyping.</li>
-          </ul>
+            <h3 className="text-xl font-bold text-white mt-10 mb-6 uppercase tracking-wide flex items-center">
+              <span className="w-8 h-[2px] bg-red-600 mr-3 inline-block"></span>
+              Core Competencies
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Electromagnetics & Levitation</strong>
+                <span className="text-sm">EMS, EDS, permanent magnets, electromagnets, Halbach arrays</span>
+              </div>
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Mechanical Engineering</strong>
+                <span className="text-sm">Structural design, weight distribution, CAD, system dynamics</span>
+              </div>
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Electronics & Power</strong>
+                <span className="text-sm">Batteries, MOSFETs/IGBTs, drivers, power management</span>
+              </div>
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Embedded & Control</strong>
+                <span className="text-sm">ESP32/STM32, sensors, PID control, real-time stabilization</span>
+              </div>
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Propulsion & Motion</strong>
+                <span className="text-sm">BLDC, linear motors, electromagnetic propulsion</span>
+              </div>
+              <div className="border border-neutral-800 p-4 bg-neutral-900/50">
+                <strong className="text-red-500 block mb-1">Simulation & Testing</strong>
+                <span className="text-sm">MATLAB/Simulink, ANSYS, COMSOL, iterative prototyping</span>
+              </div>
+            </div>
 
-          <p className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-            <strong>Primary objective:</strong><br />
-            Investigate existing levitation technologies, identify the most feasible approach, develop simulations and experimental prototypes, validate the concept, and establish the technical foundation for future applications.
-          </p>
+            <div className="bg-red-600/10 p-6 border border-red-600/30 text-red-50">
+              <strong className="uppercase tracking-widest text-red-500 block mb-2 text-sm">Primary Directive</strong>
+              Investigate existing levitation technologies, identify the most feasible approach, develop simulations and experimental prototypes, validate the concept, and establish the technical foundation for future applications.
+            </div>
+          </div>
         </div>
 
-        <hr className="my-8" />
-
-        <h2 className="text-2xl font-bold mb-6">Apply Now</h2>
+        <div className="flex items-center mb-10">
+          <div className="w-12 h-1 bg-red-600 mr-4"></div>
+          <h2 className="text-4xl font-bold uppercase italic tracking-wider">Qualifying Round</h2>
+        </div>
         
-        {status === 'success' ? (
-          <div className="bg-green-50 text-green-800 p-4 rounded-lg border border-green-200">
-            Thank you for applying! We will get back to you soon.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+        <div className="bg-neutral-900 border border-neutral-800 p-8 md:p-10">
+          {status === 'success' ? (
+            <div className="bg-green-500/10 border border-green-500/50 text-green-400 p-6 font-mono text-center uppercase tracking-widest">
+              Application Transmitted Successfully. Stand By.
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">First Name</label>
+                  <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Last Name</label>
+                  <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+                </div>
               </div>
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Comms (WhatsApp Number)</label>
+                <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp Number</label>
-              <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
-            </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Email Address</label>
+                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors" />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email ID</label>
-              <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
-            </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">Telemetry Data (What you know & how you can contribute)</label>
+                <textarea required name="description" rows={5} value={formData.description} onChange={handleChange} className="w-full bg-black border border-neutral-800 px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors resize-none"></textarea>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Short Description (What you know & how you can contribute)</label>
-              <textarea required name="description" rows={5} value={formData.description} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
-            </div>
+              {status === 'error' && (
+                <div className="text-red-500 text-sm font-mono uppercase">Transmission failed. Please retry.</div>
+              )}
 
-            {status === 'error' && (
-              <div className="text-red-600 text-sm">Something went wrong. Please try again.</div>
-            )}
-
-            <button 
-              type="submit" 
-              disabled={status === 'submitting'}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors disabled:opacity-50"
-            >
-              {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
-            </button>
-          </form>
-        )}
+              <button 
+                type="submit" 
+                disabled={status === 'submitting'}
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 transform skew-x-[-10deg] uppercase tracking-wider transition-all disabled:opacity-50 disabled:hover:scale-100 hover:scale-[1.02] mt-4"
+              >
+                <span className="block transform skew-x-[10deg]">
+                  {status === 'submitting' ? 'Transmitting...' : 'Submit Application'}
+                </span>
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );
