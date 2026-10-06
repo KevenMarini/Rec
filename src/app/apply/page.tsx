@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ export default function ApplyPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -48,7 +48,7 @@ export default function ApplyPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { x: -20, opacity: 0 },
     visible: { 
       x: 0, 
