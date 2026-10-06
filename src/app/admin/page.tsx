@@ -109,7 +109,7 @@ export default function AdminPage() {
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Applications');
     
-    XLSX.writeFile(workbook, `pole-position-applications-${new Date().toISOString().split('T')[0]}.xlsx`);
+    XLSX.writeFile(workbook, `applications-${new Date().toISOString().split('T')[0]}.xlsx`);
   };
 
   if (loading) {
@@ -183,7 +183,7 @@ export default function AdminPage() {
               <span className="w-8 h-[2px] bg-red-600 mr-3 inline-block"></span>
               Admin Dashboard
             </h1>
-            <p className="text-neutral-400 font-mono text-sm tracking-widest uppercase">Pole Position Team Applications</p>
+            <p className="text-neutral-400 font-mono text-sm tracking-widest uppercase">Team Applications</p>
           </div>
           <button 
             onClick={handleLogout}

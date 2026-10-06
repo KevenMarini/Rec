@@ -13,19 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Recruitment Portal | Pole Position Team",
-  description: "Join the Pole Position Team. Claim your spot on the grid.",
+  title: "Recruitment Portal",
+  description: "Join us. Claim your spot on the grid.",
   openGraph: {
-    title: "Recruitment Portal | Pole Position Team",
-    description: "Join the Pole Position Team. Claim your spot on the grid.",
+    title: "Recruitment Portal",
+    description: "Join us. Claim your spot on the grid.",
     url: "https://teamrec.vercel.app",
-    siteName: "Pole Position Team",
+    siteName: "Recruitment Portal",
     images: [
       {
         url: "/hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Pole Position Team Hero",
+        alt: "Hero Image",
       },
     ],
     locale: "en_US",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Recruitment Portal | Pole Position Team",
-    description: "Join the Pole Position Team. Claim your spot on the grid.",
+    title: "Recruitment Portal",
+    description: "Join us. Claim your spot on the grid.",
     images: ["/hero.jpg"],
   },
 };
