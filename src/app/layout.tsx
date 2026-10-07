@@ -13,19 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Recruitment Portal",
-  description: "Join us. Claim your spot on the grid.",
+  title: "Team Aeolus | Engineering & Innovation",
+  description: "Join Team Aeolus. Engineering & Innovation for the future of high-speed levitation.",
   openGraph: {
-    title: "Recruitment Portal",
-    description: "Join us. Claim your spot on the grid.",
-    url: "https://teamrec.vercel.app",
-    siteName: "Recruitment Portal",
+    title: "Team Aeolus | Engineering & Innovation",
+    description: "Join Team Aeolus. Engineering & Innovation for the future of high-speed levitation.",
+    url: "https://www.teamaeolus.in",
+    siteName: "Team Aeolus",
     images: [
       {
         url: "/hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Hero Image",
+        alt: "Team Aeolus",
       },
     ],
     locale: "en_US",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Recruitment Portal",
-    description: "Join us. Claim your spot on the grid.",
+    title: "Team Aeolus | Engineering & Innovation",
+    description: "Join Team Aeolus. Engineering & Innovation for the future of high-speed levitation.",
     images: ["/hero.jpg"],
   },
   verification: {

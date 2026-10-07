@@ -63,7 +63,7 @@ export default function Home() {
               className="rounded-full border-2 border-red-600 object-cover"
             />
             <div className="text-red-500 font-black italic tracking-widest uppercase text-xl">
-              Recruitment Portal
+              Team Aeolus
             </div>
           </div>
           
@@ -150,7 +150,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-red-500 font-bold tracking-[0.2em] uppercase mb-4 text-sm drop-shadow-lg"
           >
-            Recruitment Portal
+            Team Aeolus | Engineering & Innovation
           </motion.p>
           
           <motion.h1 
@@ -408,7 +408,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-black py-12 text-center border-t border-neutral-800 relative overflow-hidden">
-        <p className="text-neutral-500 uppercase tracking-widest text-sm font-bold italic relative z-10">© {new Date().getFullYear()} Recruitment Portal.</p>
+        <p className="text-neutral-500 uppercase tracking-widest text-sm font-bold italic relative z-10">© {new Date().getFullYear()} Team Aeolus.</p>
       </footer>
     </div>
   );
