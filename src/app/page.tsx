@@ -56,11 +56,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <Image 
-              src="/hero.jpg" 
-              alt="Team Logo" 
-              width={40} 
-              height={40} 
-              className="rounded-full border-2 border-red-600 object-cover"
+              src="/logo.png" 
+              alt="Team Aeolus Logo" 
+              width={50} 
+              height={50} 
+              className="object-contain"
             />
             <div className="text-red-500 font-black italic tracking-widest uppercase text-xl">
               Team Aeolus

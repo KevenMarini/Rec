@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Team Aeolus",
     images: [
       {
-        url: "/hero.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Team Aeolus",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Team Aeolus | Engineering & Innovation",
     description: "Join Team Aeolus. Engineering & Innovation for the future of high-speed levitation.",
-    images: ["/hero.jpg"],
+    images: ["/logo.png"],
   },
   verification: {
     google: "zGQ1jLySAH0Go7vxnXx_eGm5w1YWMciAlxy4HEqcqxs",
