@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     description: "Join us. Claim your spot on the grid.",
     images: ["/hero.jpg"],
   },
+  verification: {
+    google: "zGQ1jLySAH0Go7vxnXx_eGm5w1YWMciAlxy4HEqcqxs",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
