@@ -258,7 +258,7 @@ export default function Home() {
         >
           <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
           <p className="text-xl text-neutral-300 font-light italic text-center leading-relaxed">
-            We are developing a high-speed, frictionless levitation transportation system using quantum flux pinning and magnetic track dynamics. The concept focuses on eliminating conventional wheel-on-ground contact by using cryogenic superconductors and controlled magnetic fields to achieve stable levitation and movement. By reducing mechanical friction and physical contact, the system aims to explore a more efficient and low-wear approach to high-speed transportation. The project is currently focused on researching and developing the underlying technology and understanding how superconductivity, magnetic fields, and vehicle dynamics can be combined to create a practical levitating transportation platform.
+            We are engineering an experimental personal levitation vehicle designed to bring frictionless, zero-contact transport to everyday mobility. Moving away from conventional wheels and high-friction contact points, the platform utilizes dynamic electromagnetic induction to float cleanly over a passive conductive surface at ambient temperatures. Designed with decoupled electric thrust vectoring, it combines high-speed transit physics with omnidirectional 2D control and pure power-slide dynamics—delivering a safe, low-wear riding experience without complex cryogenic infrastructure.
           </p>
         </motion.div>
       </section>
