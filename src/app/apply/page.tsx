@@ -161,7 +161,25 @@ export default function ApplyPage() {
           transition={{ duration: 0.6 }}
           className="bg-neutral-900 border border-neutral-800 p-8 md:p-10 shadow-xl"
         >
-          {status === 'success' ? (
+          {true ? ( // Applications Closed Flag
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-red-500/10 border border-red-500/50 text-red-400 p-8 flex flex-col items-center text-center uppercase tracking-widest"
+            >
+              <div className="mb-6 font-bold text-xl">Applications Closed</div>
+              
+              <div className="w-full h-px bg-red-500/20 mb-6"></div>
+              
+              <p className="text-neutral-300 font-sans normal-case tracking-normal mb-6">
+                Thank you for your interest in Team Aeolus! The R&D recruitment phase has concluded. 
+              </p>
+              
+              <p className="text-neutral-400 text-sm font-sans normal-case mb-6">
+                Stay tuned for future updates and project milestones.
+              </p>
+            </motion.div>
+          ) : status === 'success' ? (
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
